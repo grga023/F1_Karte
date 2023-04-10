@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\F1Karte.Aplikacija\F1Karte.Aplikacija.csproj" />
     <ProjectReference Include="..\F1Karte.Infrastruktura\F1Karte.Infrastruktura.csproj" />
   </ItemGroup>
 
