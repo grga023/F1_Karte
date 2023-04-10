@@ -12,22 +12,13 @@
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.15" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.15">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <IncludeAssets>runstime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\F1Karte.Domen\F1Karte.Domen.csproj" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     <ProjectReference Include="..\F1Karte.Infrastruktura\F1Karte.Infrastruktura.csproj" />
-=======
->>>>>>> parent of ec60337 (a)
-=======
->>>>>>> parent of ec60337 (a)
-=======
->>>>>>> parent of ec60337 (a)
   </ItemGroup>
 
 </Project>
