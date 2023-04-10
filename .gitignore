@@ -454,3 +454,6 @@ dist
 
 # TernJS port file
 .tern-port
+/F1Karte/F1Karte.Infrastruktura/Migrations/20230410181911_init-2.Designer.cs
+/F1Karte/F1Karte.Infrastruktura/Migrations/20230410181911_init-2.cs
+/F1Karte/F1Karte.Infrastruktura/Migrations
