@@ -12,10 +12,9 @@ namespace F1Karte.UI
         [STAThread]
         static void Main()
         {
-            IKartaServis aaa;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(aaa));
+            Application.Run(new Form1());
         }
     }
 }

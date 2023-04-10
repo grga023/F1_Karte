@@ -6,7 +6,11 @@ namespace F1Karte.Domen.Modeli
     public class Karta
     {
         [Key]
+<<<<<<< HEAD
         public string ID_Karte { get; set; }
+=======
+        public int ID_Karte { get; set; }
+>>>>>>> parent of ec60337 (a)
         public string Drzava { get; set; }
         public string Grad { get; set; }
         public DateTime DateTime { get; set; }
@@ -14,5 +18,9 @@ namespace F1Karte.Domen.Modeli
         public double CenaKarte { get; set; }
         public int BrDana { get; set; }
         public string Tribina { get; set; }
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of ec60337 (a)
     }
 }

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿using F1Karte.Domen.Modeli;
+=======
+﻿using F1Karte.Domain.Modeli;
+>>>>>>> parent of ec60337 (a)
 using F1Karte.Infrastruktura.Context;
 using F1Karte.Infrastruktura.Interfejsi;
 using Microsoft.EntityFrameworkCore;
@@ -77,7 +81,11 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
         public async Task<Karta> PrikazSvihKarataPoIDAsync(object ID)
         {
             var podatci = await _ctx.Karte
+<<<<<<< HEAD
                 .FirstOrDefaultAsync(x => x.ID_Karte == (string)ID);
+=======
+                .FirstOrDefaultAsync(x => x.ID_Karte == (int)ID);
+>>>>>>> parent of ec60337 (a)
 
             return podatci;
         }
