@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1Karte.Interface", "F1Karte.Interface\F1Karte.Interface.csproj", "{B59D1F97-752A-438A-8550-CAFD3D12AF7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1Karte.Infrastruktura", "F1Karte.Infrastruktura\F1Karte.Infrastruktura.csproj", "{5A0BF69A-FF97-4234-8211-FBEF6CD197AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1Karte.Infrastruktura", "F1Karte.Infrastruktura\F1Karte.Infrastruktura.csproj", "{5A0BF69A-FF97-4234-8211-FBEF6CD197AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1Karte.Domen", "F1Karte.Domen\F1Karte.Domen.csproj", "{00B6860D-4B7F-4113-93D6-378FD88B6B91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1Karte.Domen", "F1Karte.Domen\F1Karte.Domen.csproj", "{00B6860D-4B7F-4113-93D6-378FD88B6B91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1Karte.Aplikacija", "F1Karte.Aplikacija\F1Karte.Aplikacija.csproj", "{53D0ADDD-8EBF-46FD-A2BD-5881A92D4E48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1Karte.Aplikacija", "F1Karte.Aplikacija\F1Karte.Aplikacija.csproj", "{53D0ADDD-8EBF-46FD-A2BD-5881A92D4E48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1Karte.UI", "F1Karte.UI\F1Karte.UI.csproj", "{FB108B53-54B4-4E83-BCC5-7A44E10590AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B59D1F97-752A-438A-8550-CAFD3D12AF7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B59D1F97-752A-438A-8550-CAFD3D12AF7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B59D1F97-752A-438A-8550-CAFD3D12AF7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B59D1F97-752A-438A-8550-CAFD3D12AF7E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5A0BF69A-FF97-4234-8211-FBEF6CD197AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5A0BF69A-FF97-4234-8211-FBEF6CD197AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A0BF69A-FF97-4234-8211-FBEF6CD197AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{53D0ADDD-8EBF-46FD-A2BD-5881A92D4E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53D0ADDD-8EBF-46FD-A2BD-5881A92D4E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53D0ADDD-8EBF-46FD-A2BD-5881A92D4E48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB108B53-54B4-4E83-BCC5-7A44E10590AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB108B53-54B4-4E83-BCC5-7A44E10590AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB108B53-54B4-4E83-BCC5-7A44E10590AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB108B53-54B4-4E83-BCC5-7A44E10590AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
