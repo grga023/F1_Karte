@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using F1Karte.Domen.Modeli;
+=======
+﻿using F1Karte.Domain.Modeli;
+>>>>>>> parent of ec60337 (a)
 =======
 ﻿using F1Karte.Domain.Modeli;
 >>>>>>> parent of ec60337 (a)
@@ -82,7 +86,11 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
         {
             var podatci = await _ctx.Karte
 <<<<<<< HEAD
+<<<<<<< HEAD
                 .FirstOrDefaultAsync(x => x.ID_Karte == (string)ID);
+=======
+                .FirstOrDefaultAsync(x => x.ID_Karte == (int)ID);
+>>>>>>> parent of ec60337 (a)
 =======
                 .FirstOrDefaultAsync(x => x.ID_Karte == (int)ID);
 >>>>>>> parent of ec60337 (a)

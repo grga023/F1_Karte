@@ -7,8 +7,11 @@ namespace F1Karte.Domen.Modeli
     {
         [Key]
 <<<<<<< HEAD
+<<<<<<< HEAD
         public string ID_Karte { get; set; }
 =======
+=======
+>>>>>>> parent of ec60337 (a)
         public int ID_Karte { get; set; }
 >>>>>>> parent of ec60337 (a)
         public string Drzava { get; set; }
@@ -19,6 +22,10 @@ namespace F1Karte.Domen.Modeli
         public int BrDana { get; set; }
         public string Tribina { get; set; }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of ec60337 (a)
 =======
 
 >>>>>>> parent of ec60337 (a)

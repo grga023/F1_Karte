@@ -19,7 +19,10 @@
   <ItemGroup>
     <ProjectReference Include="..\F1Karte.Domen\F1Karte.Domen.csproj" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ProjectReference Include="..\F1Karte.Infrastruktura\F1Karte.Infrastruktura.csproj" />
+=======
+>>>>>>> parent of ec60337 (a)
 =======
 >>>>>>> parent of ec60337 (a)
   </ItemGroup>
