@@ -1,19 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace F1Karte.Domen.Modeli
+namespace F1Karte.Domen.DTO
 {
-    public class Karta
+    internal class KartaDTO
     {
-        [Key]
-        public int ID_Karte { get; set; }
         public string Drzava { get; set; }
         public string Grad { get; set; }
-        public DateTime DateTime { get; set; }
         public string NazivStaze { get; set; }
         public double CenaKarte { get; set; }
         public int BrDana { get; set; }
         public string Tribina { get; set; }
-
     }
 }

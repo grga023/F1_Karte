@@ -1,4 +1,4 @@
-﻿using F1Karte.Domain.Modeli;
+﻿using F1Karte.Domen.Modeli;
 using Microsoft.EntityFrameworkCore;
 
 namespace F1Karte.Infrastruktura
