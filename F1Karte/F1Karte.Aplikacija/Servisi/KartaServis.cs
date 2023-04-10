@@ -2,11 +2,6 @@
 using F1Karte.Domen.Modeli;
 using F1Karte.Infrastruktura.Interfejsi;
 using F1Karte.Infrastruktura.Repositozitorijumi;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace F1Karte.Aplikacija.Servisi
 {
@@ -74,7 +69,7 @@ namespace F1Karte.Aplikacija.Servisi
         public async Task KreirajNovuKartu(Karta KartaModel)
         {
             //Dodaj novi ID karte
-            string IDKarte = GenerisiRandomIDKarte();
+            int IDKarte = int.Parse(GenerisiRandomIDKarte());
 
             //ID postoji
             var postojiKarta = await _kartaRepozitorijum.PrikazSvihKarataPoIDAsync(IDKarte);

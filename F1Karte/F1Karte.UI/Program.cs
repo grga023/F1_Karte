@@ -1,6 +1,3 @@
-using F1Karte.Infrastruktura;
-using Microsoft.Extensions.DependencyInjection;
-
 namespace F1Karte.UI
 {
     internal static class Program

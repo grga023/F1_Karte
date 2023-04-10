@@ -1,16 +1,7 @@
-<<<<<<< Updated upstream
-﻿using F1Karte.Domain.Modeli;
-=======
-﻿using F1Karte.Domen.Modeli;
->>>>>>> Stashed changes
+using F1Karte.Domen.Modeli;
 using F1Karte.Infrastruktura.Context;
 using F1Karte.Infrastruktura.Interfejsi;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace F1Karte.Infrastruktura.Repositozitorijumi
 {
@@ -80,13 +71,7 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
 
         public async Task<Karta> PrikazSvihKarataPoIDAsync(object ID)
         {
-            var podatci = await _ctx.Karte
-<<<<<<< Updated upstream
-                .FirstOrDefaultAsync(x => x.ID_Karte == (int)ID);
-=======
-                .FirstOrDefaultAsync(x => x.ID_Karte == (string)ID);
->>>>>>> Stashed changes
-
+            var podatci = await _ctx.Karte.FirstOrDefaultAsync(x => x.ID_Karte == (int)ID);
             return podatci;
         }
 
