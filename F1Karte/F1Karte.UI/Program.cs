@@ -1,3 +1,8 @@
+using F1Karte.Aplikacija.Interfejsi;
+using F1Karte.Aplikacija.Servisi;
+using F1Karte.Infrastruktura;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace F1Karte.UI
 {
     internal static class Program
@@ -8,9 +13,8 @@ namespace F1Karte.UI
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
     }
