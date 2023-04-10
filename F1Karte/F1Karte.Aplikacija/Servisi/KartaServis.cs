@@ -10,10 +10,10 @@ namespace F1Karte.Aplikacija.Servisi
         public IKartaRepozitorijum _kartaRepozitorijum;
         public IValidacioniServis _validacioniServis;
 
-        public KartaServis(IKartaRepozitorijum kartaRepozitorijum, IValidacioniServis validacioniServis)
+        public KartaServis()
         {
-            _kartaRepozitorijum = kartaRepozitorijum;
-            _validacioniServis = validacioniServis;
+            _kartaRepozitorijum = new KartaRepozitorijum();
+            _validacioniServis = new ValidacioniServis();
         }
 
         private string GenerisiRandomIDKarte()
@@ -69,7 +69,7 @@ namespace F1Karte.Aplikacija.Servisi
         public async Task KreirajNovuKartu(Karta KartaModel)
         {
             //Dodaj novi ID karte
-            int IDKarte = int.Parse(GenerisiRandomIDKarte());
+            string IDKarte = GenerisiRandomIDKarte();
 
             //ID postoji
             var postojiKarta = await _kartaRepozitorijum.PrikazSvihKarataPoIDAsync(IDKarte);

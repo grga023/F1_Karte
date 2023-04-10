@@ -9,9 +9,9 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
     {
         public F1KarteDBContext _ctx;
 
-        public KartaRepozitorijum(F1KarteDBContext ctx)
+        public KartaRepozitorijum()
         {
-            _ctx = ctx;
+            _ctx = new F1KarteDBContext();
         }
 
         public Karta Azuriraj(Karta obj)
@@ -71,7 +71,7 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
 
         public async Task<Karta> PrikazSvihKarataPoIDAsync(object ID)
         {
-            var podatci = await _ctx.Karte.FirstOrDefaultAsync(x => x.ID_Karte == (int)ID);
+            var podatci = await _ctx.Karte.FirstOrDefaultAsync(x => x.ID_Karte == (string)ID);
             return podatci;
         }
 

@@ -1,16 +1,19 @@
 using F1Karte.Aplikacija.Interfejsi;
+using F1Karte.Aplikacija.Servisi;
 using F1Karte.Domen.Modeli;
 
 namespace F1Karte.UI
 {
     public partial class Form1 : Form
     {
+        KartaServis _kartaServis;
         public Form1()
         {
+            _kartaServis = new KartaServis();
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             Karta kartaZaDodati = new();
 
@@ -21,6 +24,8 @@ namespace F1Karte.UI
             kartaZaDodati.DateTime = DateTime.Parse(date.Text);
             kartaZaDodati.CenaKarte = Int32.Parse(txtxCenaKarte.Text);
             kartaZaDodati.NazivStaze = txtStaza.Text;
+
+            await _kartaServis.KreirajNovuKartu(kartaZaDodati);
         }
     }
 }
