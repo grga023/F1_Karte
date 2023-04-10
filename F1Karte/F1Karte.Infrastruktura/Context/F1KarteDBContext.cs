@@ -1,7 +1,7 @@
 ﻿using F1Karte.Domen.Modeli;
 using Microsoft.EntityFrameworkCore;
 
-namespace F1Karte.Infrastruktura
+namespace F1Karte.Infrastruktura.Context
 {
     public class F1KarteDBContext : DbContext
     {
@@ -20,7 +20,7 @@ namespace F1Karte.Infrastruktura
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=F1KarteDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer("Data Source=LAPTOP-GRGA\\SQLEXPRESS;Initial Catalog=F1KarteDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
     }
 }

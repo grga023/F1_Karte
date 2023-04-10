@@ -6,6 +6,7 @@ namespace F1Karte.Domen.Modeli
     public class Karta
     {
         [Key]
+<<<<<<< Updated upstream
         public int ID_Karte { get; set; }
         public string Drzava { get; set; }
         public string Grad { get; set; }
@@ -15,5 +16,15 @@ namespace F1Karte.Domen.Modeli
         public int BrDana { get; set; }
         public string Tribina { get; set; }
 
+=======
+        public string       ID_Karte { get; set; }
+        public string       Drzava { get; set; }
+        public string       Grad { get; set; }
+        public DateTime     DateTime { get; set; }
+        public string       NazivStaze { get; set; }
+        public double       CenaKarte { get; set; }
+        public int          BrDana { get; set; }
+        public string       Tribina { get; set; }
+>>>>>>> Stashed changes
     }
 }

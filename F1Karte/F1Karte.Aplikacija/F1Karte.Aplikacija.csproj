@@ -18,6 +18,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\F1Karte.Domen\F1Karte.Domen.csproj" />
+<<<<<<< Updated upstream
+=======
+    <ProjectReference Include="..\F1Karte.Infrastruktura\F1Karte.Infrastruktura.csproj" />
+>>>>>>> Stashed changes
   </ItemGroup>
 
 </Project>
