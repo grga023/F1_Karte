@@ -128,80 +128,64 @@ namespace F1Karte.Aplikacija.Servisi
             return result;
         }
 
-        public async Task<Karta> PrikazSvihKarataPoCeniAsync(object Cena)
+        public async Task<IEnumerable<Karta>> PrikazSvihKarataPoCeniAsync(object Cena)
         {
-            var data = await _kartaRepozitorijum.PrikazSvihKarataPoCeniAsync(Cena);
-            if (data is null)
+            var podatci = await _kartaRepozitorijum.PrikazSvihKarataPoCeniAsync(Cena);
+            if (podatci is null)
                 throw new KartaNijePronadjenaException("Neispravna cena!");
 
             List<Karta> result = new List<Karta>();
             Karta Karta;
 
-            Karta = new Karta
+            foreach (var item in podatci)
             {
-                ID_Karte = data.ID_Karte,
-                Drzava = data.Drzava,
-                Grad = data.Grad,
-                DateTime = data.DateTime,   
-                NazivStaze = data.NazivStaze,
-                CenaKarte = data.CenaKarte,
-                BrDana = data.BrDana,
-                Tribina = data.Tribina
-            };
+                Karta = new Karta
+                {
+                    ID_Karte = item.ID_Karte,
+                    Drzava = item.Drzava,
+                    Grad = item.Grad,
+                    DateTime = item.DateTime,
+                    NazivStaze = item.NazivStaze,
+                    CenaKarte = item.CenaKarte,
+                    BrDana = item.BrDana,
+                    Tribina = item.Tribina
+                };
 
+                result.Add(Karta);
+            }
 
-            return Karta;
+            return result;
         }
 
-        public async Task<Karta> PrikazSvihKarataPoGraduAsync(object Grad)
+        public async Task<IEnumerable<Karta>> PrikazSvihKarataPoGraduAsync(object Grad)
         {
-            var data = await _kartaRepozitorijum.PrikazSvihKarataPoCeniAsync(Grad);
-            if (data is null)
+            var podatci = await _kartaRepozitorijum.PrikazSvihKarataPoGraduAsync(Grad);
+            if (podatci is null)
                 throw new KartaNijePronadjenaException("Neispravna cena!");
 
             List<Karta> result = new List<Karta>();
             Karta Karta;
 
-            Karta = new Karta
+            foreach (var item in podatci)
             {
-                ID_Karte = data.ID_Karte,
-                Drzava = data.Drzava,
-                Grad = data.Grad,
-                DateTime = data.DateTime,
-                NazivStaze = data.NazivStaze,
-                CenaKarte = data.CenaKarte,
-                BrDana = data.BrDana,
-                Tribina = data.Tribina
-            };
+                Karta = new Karta
+                {
+                    ID_Karte = item.ID_Karte,
+                    Drzava = item.Drzava,
+                    Grad = item.Grad,
+                    DateTime = item.DateTime,
+                    NazivStaze = item.NazivStaze,
+                    CenaKarte = item.CenaKarte,
+                    BrDana = item.BrDana,
+                    Tribina = item.Tribina
+                };
 
+                result.Add(Karta);
+            }
 
-            return Karta;
+            return result;
         }
 
 
-        public async Task<Karta> PrikazSvihKarataPoIDAsync(object ID)
-        {
-            var data = await _kartaRepozitorijum.PrikazSvihKarataPoCeniAsync(ID);
-            if (data is null)
-                throw new KartaNijePronadjenaException("Neispravna cena!");
-
-            List<Karta> result = new List<Karta>();
-            Karta Karta;
-
-            Karta = new Karta
-            {
-                ID_Karte = data.ID_Karte,
-                Drzava = data.Drzava,
-                Grad = data.Grad,
-                DateTime = data.DateTime,
-                NazivStaze = data.NazivStaze,
-                CenaKarte = data.CenaKarte,
-                BrDana = data.BrDana,
-                Tribina = data.Tribina
-            };
-
-
-            return Karta;
-        }
     }
 }

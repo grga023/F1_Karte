@@ -34,15 +34,15 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
             return _ctx.Karte.Add(obj).Entity;
         }
 
-        public async Task<Karta> Obrisi(object ID)
+        public async Task<IEnumerable<Karta>> Obrisi(object ID)
         {
-            Karta postoji = await PrikazSvihKarataPoIDAsync(ID);
+            var postoji = await PrikazSvihKarataPoIDAsync(ID);
             if (postoji is null)
                 throw new KartaNijePronadjenaException("Pogresan ID karte!");
 
-            var podatci = _ctx.Karte.Remove(postoji);
+            var podatci = _ctx.Karte.Remove((Karta)postoji);
 
-            return podatci.Entity;
+            return null;
         }
 
         public async Task<IEnumerable<Karta>> PrikazSvihKarataAsync()
@@ -53,25 +53,27 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
             return podatci;
         }
 
-        public async Task<Karta> PrikazSvihKarataPoCeniAsync(object Cena)
+        public async Task<IEnumerable<Karta>> PrikazSvihKarataPoCeniAsync(object Cena)
         {
             var podatci = await _ctx.Karte
-                .FirstOrDefaultAsync(x => x.CenaKarte == (int)Cena);
+                    .Where(x => x.CenaKarte == (int)Cena).ToListAsync();
 
             return podatci;
         }
 
-        public async Task<Karta> PrikazSvihKarataPoGraduAsync(object Grad)
+        public async Task<IEnumerable<Karta>> PrikazSvihKarataPoGraduAsync(object Grad)
         {
             var podatci = await _ctx.Karte
-                .FirstOrDefaultAsync(x => x.Grad == (string)Grad);
+                .Where(x => x.Grad == (string)Grad).ToArrayAsync();
 
             return podatci;
         }
 
-        public async Task<Karta> PrikazSvihKarataPoIDAsync(object ID)
+        public async Task<IEnumerable<Karta>> PrikazSvihKarataPoIDAsync(object ID)
         {
-            var podatci = await _ctx.Karte.FirstOrDefaultAsync(x => x.ID_Karte == (string)ID);
+                var podatci = await _ctx.Karte
+                .Where(x => x.ID_Karte == ID).ToArrayAsync();
+
             return podatci;
         }
 

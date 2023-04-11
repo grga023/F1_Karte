@@ -10,9 +10,8 @@ namespace F1Karte.Aplikacija.Interfejsi
     public interface IKartaServis
     {
         Task<IEnumerable<Karta>> PrikazSvihKarataAsync();
-        Task<Karta> PrikazSvihKarataPoIDAsync(object ID);
-        Task<Karta> PrikazSvihKarataPoCeniAsync(object Cena);
-        Task<Karta> PrikazSvihKarataPoGraduAsync(object Grad);
+        Task<IEnumerable<Karta>> PrikazSvihKarataPoCeniAsync(object Cena);
+        Task<IEnumerable<Karta>> PrikazSvihKarataPoGraduAsync(object Grad);
         Task AzurirajKartu(Karta obj, object ID);
         Task KreirajNovuKartu(Karta KartaModel);
         Task ObrisiKartu(object ID);

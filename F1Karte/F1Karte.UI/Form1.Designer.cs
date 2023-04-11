@@ -48,11 +48,11 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.txtFilter = new System.Windows.Forms.TextBox();
+            this.cbFilterCena = new System.Windows.Forms.CheckBox();
+            this.cbFilterGrad = new System.Windows.Forms.CheckBox();
+            this.txtFilterCena = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.txtFilterGrad = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,7 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(656, 300);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // txtDrzava
             // 
@@ -211,6 +212,7 @@
             this.button2.TabIndex = 19;
             this.button2.Text = "Obrisi";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label9
             // 
@@ -222,42 +224,34 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "Filtriraj po:";
             // 
-            // checkBox1
+            // cbFilterCena
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(7, 272);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(50, 19);
-            this.checkBox1.TabIndex = 21;
-            this.checkBox1.Text = "Ceni";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbFilterCena.AutoSize = true;
+            this.cbFilterCena.Location = new System.Drawing.Point(8, 284);
+            this.cbFilterCena.Name = "cbFilterCena";
+            this.cbFilterCena.Size = new System.Drawing.Size(50, 19);
+            this.cbFilterCena.TabIndex = 21;
+            this.cbFilterCena.Text = "Ceni";
+            this.cbFilterCena.UseVisualStyleBackColor = true;
+            this.cbFilterCena.CheckedChanged += new System.EventHandler(this.cbFilterCena_CheckedChanged);
             // 
-            // checkBox2
+            // cbFilterGrad
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(74, 272);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(58, 19);
-            this.checkBox2.TabIndex = 22;
-            this.checkBox2.Text = "Gradu";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbFilterGrad.AutoSize = true;
+            this.cbFilterGrad.Location = new System.Drawing.Point(144, 284);
+            this.cbFilterGrad.Name = "cbFilterGrad";
+            this.cbFilterGrad.Size = new System.Drawing.Size(58, 19);
+            this.cbFilterGrad.TabIndex = 22;
+            this.cbFilterGrad.Text = "Gradu";
+            this.cbFilterGrad.UseVisualStyleBackColor = true;
+            this.cbFilterGrad.CheckedChanged += new System.EventHandler(this.cbFilterGrad_CheckedChanged);
             // 
-            // checkBox3
+            // txtFilterCena
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(144, 272);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(49, 19);
-            this.checkBox3.TabIndex = 23;
-            this.checkBox3.Text = "ID-u";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // txtFilter
-            // 
-            this.txtFilter.Location = new System.Drawing.Point(8, 309);
-            this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(212, 23);
-            this.txtFilter.TabIndex = 24;
+            this.txtFilterCena.Location = new System.Drawing.Point(8, 309);
+            this.txtFilterCena.Name = "txtFilterCena";
+            this.txtFilterCena.Size = new System.Drawing.Size(124, 23);
+            this.txtFilterCena.TabIndex = 24;
             // 
             // button3
             // 
@@ -267,17 +261,25 @@
             this.button3.TabIndex = 25;
             this.button3.Text = "Filtriraj";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // txtFilterGrad
+            // 
+            this.txtFilterGrad.Location = new System.Drawing.Point(144, 309);
+            this.txtFilterGrad.Name = "txtFilterGrad";
+            this.txtFilterGrad.Size = new System.Drawing.Size(124, 23);
+            this.txtFilterGrad.TabIndex = 27;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1196, 382);
+            this.Controls.Add(this.txtFilterGrad);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.txtFilter);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.txtFilterCena);
+            this.Controls.Add(this.cbFilterGrad);
+            this.Controls.Add(this.cbFilterCena);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtID);
@@ -328,10 +330,10 @@
         private TextBox txtID;
         private Button button2;
         private Label label9;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
-        private CheckBox checkBox3;
-        private TextBox txtFilter;
+        private CheckBox cbFilterCena;
+        private CheckBox cbFilterGrad;
+        private TextBox txtFilterCena;
         private Button button3;
+        private TextBox txtFilterGrad;
     }
 }

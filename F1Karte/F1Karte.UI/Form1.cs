@@ -7,10 +7,14 @@ namespace F1Karte.UI
     public partial class Form1 : Form
     {
         KartaServis _kartaServis;
+        private string filteri;
+        
         public Form1()
         {
             _kartaServis = new KartaServis();
+            InitPrikaz();
             InitializeComponent();
+            OmnemoguciFilter();
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -26,8 +30,117 @@ namespace F1Karte.UI
             kartaZaDodati.NazivStaze = txtStaza.Text;
 
             await _kartaServis.KreirajNovuKartu(kartaZaDodati);
+            InitPrikaz();
         }
-        
-        //dataGridView1.DataSource = servisGetAllAsync.ToList();
+
+        private async Task InitPrikaz()
+        {
+            var karte = await _kartaServis.PrikazSvihKarataAsync();
+            string dig = "500";
+
+            //var karte = await _kartaServis.PrikazSvihKarataPoCeniAsync(Convert.ToInt32(dig));
+            dataGridView1.DataSource = karte;
+        }
+
+        private async Task Filter(string filter, object param)
+        {
+            if (param != "" && filter != "")
+            {
+                IEnumerable<Karta> kartaFilter = null;
+
+                switch (filter)
+                {
+                    case "Grad":
+                        kartaFilter = await _kartaServis.PrikazSvihKarataPoGraduAsync(param);
+                        break;
+                    case "Cena":
+                        kartaFilter = await _kartaServis.PrikazSvihKarataPoCeniAsync(Convert.ToInt32(param));
+                        break;
+                    default:
+                        break;
+                }
+
+                dataGridView1.DataSource = kartaFilter;
+            }
+            else
+            {
+                InitPrikaz();
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow selektovaniRed = dataGridView1.Rows[e.RowIndex];
+
+            txtDrzava.Text = selektovaniRed.Cells["Drzava"].Value.ToString();
+            txtGrad.Text = selektovaniRed.Cells["Grad"].Value.ToString();
+            txtBrDana.Text = selektovaniRed.Cells["BrDana"].Value.ToString();
+            txtStaza.Text = selektovaniRed.Cells["NazivStaze"].Value.ToString();
+            txtTribina.Text = selektovaniRed.Cells["Tribina"].Value.ToString();
+            txtxCenaKarte.Text = selektovaniRed.Cells["CenaKarte"].Value.ToString();
+            txtID.Text = selektovaniRed.Cells["ID_Karte"].Value.ToString();
+        }
+
+        private void cbFilterCena_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbFilterCena.Checked)
+            {
+                txtFilterCena.Enabled = true;
+                filteri = "Cena";
+            }
+            else
+            {
+                txtFilterCena.Enabled = false;
+                filteri = "";
+            }
+        }
+
+        private void cbFilterGrad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbFilterGrad.Checked)
+            {
+                txtFilterGrad.Enabled = true;
+                filteri = "Grad";
+            }
+            else
+            {
+                txtFilterGrad.Enabled = false;
+                filteri = "";
+            }
+        }
+
+        public void OmnemoguciFilter()
+        {
+            txtFilterCena.Enabled = false;
+            txtFilterGrad.Enabled = false;
+        }
+
+        private string UzmiParametar()
+        {
+            if (txtFilterCena.Enabled)
+            {
+                return txtFilterCena.Text;
+            }
+            else if (txtFilterGrad.Enabled)
+            {
+                return txtFilterGrad.Text;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var podataZaFilter = UzmiParametar();
+            Filter(filteri, podataZaFilter);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _ = _kartaServis.ObrisiKartu(txtID.Text);
+            InitPrikaz();
+        }
     }
 }
