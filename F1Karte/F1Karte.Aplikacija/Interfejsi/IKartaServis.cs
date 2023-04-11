@@ -14,6 +14,6 @@ namespace F1Karte.Aplikacija.Interfejsi
         Task<IEnumerable<Karta>> PrikazSvihKarataPoGraduAsync(object Grad);
         Task AzurirajKartu(Karta obj, object ID);
         Task KreirajNovuKartu(Karta KartaModel);
-        Task ObrisiKartu(object ID);
+        void ObrisiKartu(object ID);
     }
 }

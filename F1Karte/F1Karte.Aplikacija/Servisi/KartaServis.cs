@@ -46,7 +46,7 @@ namespace F1Karte.Aplikacija.Servisi
         }
         public async Task AzurirajKartu(Karta obj, object ID)
         {
-            var podatci = await _kartaRepozitorijum.PrikazSvihKarataPoIDAsync(ID);
+            var podatci =  _kartaRepozitorijum.PrikaziPoIDAsync(ID);
             if (podatci == null) throw new KartaNijePronadjenaException("Pogresan ID karte!");
 
    
@@ -72,7 +72,7 @@ namespace F1Karte.Aplikacija.Servisi
             string IDKarte = GenerisiRandomIDKarte();
 
             //ID postoji
-            var postojiKarta = await _kartaRepozitorijum.PrikazSvihKarataPoIDAsync(IDKarte);
+            var postojiKarta = _kartaRepozitorijum.PrikaziPoIDAsync(IDKarte);
             if (postojiKarta is not null)
                 await KreirajNovuKartu(KartaModel);
 
@@ -93,9 +93,9 @@ namespace F1Karte.Aplikacija.Servisi
             _kartaRepozitorijum.Sacuvaj();
         }
 
-        public async Task ObrisiKartu(object ID)
+        public void ObrisiKartu(object ID)
         {
-            await _kartaRepozitorijum.Obrisi(ID);
+            _kartaRepozitorijum.Obrisi(ID);
 
             _kartaRepozitorijum.Sacuvaj();
         }

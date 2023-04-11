@@ -36,9 +36,6 @@ namespace F1Karte.UI
         private async Task InitPrikaz()
         {
             var karte = await _kartaServis.PrikazSvihKarataAsync();
-            string dig = "500";
-
-            //var karte = await _kartaServis.PrikazSvihKarataPoCeniAsync(Convert.ToInt32(dig));
             dataGridView1.DataSource = karte;
         }
 
@@ -139,7 +136,7 @@ namespace F1Karte.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _ = _kartaServis.ObrisiKartu(txtID.Text);
+            _kartaServis.ObrisiKartu(txtID.Text);
             InitPrikaz();
         }
     }

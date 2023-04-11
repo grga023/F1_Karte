@@ -34,15 +34,20 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
             return _ctx.Karte.Add(obj).Entity;
         }
 
-        public async Task<IEnumerable<Karta>> Obrisi(object ID)
+        public void Obrisi(object ID)
         {
-            var postoji = await PrikazSvihKarataPoIDAsync(ID);
+            var postoji = _ctx.Karte.Find(ID);
             if (postoji is null)
                 throw new KartaNijePronadjenaException("Pogresan ID karte!");
 
-            var podatci = _ctx.Karte.Remove((Karta)postoji);
-
-            return null;
+            _ctx.Karte.Remove(postoji);
+        }
+        public Karta PrikaziPoIDAsync(object ID)
+        {
+            var postoji = _ctx.Karte.Find(ID);
+            if (postoji is null)
+                return postoji;
+            else return null;
         }
 
         public async Task<IEnumerable<Karta>> PrikazSvihKarataAsync()
@@ -68,16 +73,6 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
 
             return podatci;
         }
-
-        public async Task<IEnumerable<Karta>> PrikazSvihKarataPoIDAsync(object ID)
-        {
-                var podatci = await _ctx.Karte
-                .Where(x => x.ID_Karte == ID).ToArrayAsync();
-
-            return podatci;
-        }
-
-
 
         public void Sacuvaj()
         {
