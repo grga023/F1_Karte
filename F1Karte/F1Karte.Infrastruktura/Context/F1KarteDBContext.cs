@@ -23,4 +23,20 @@ namespace F1Karte.Infrastruktura.Context
             optionsBuilder.UseSqlServer("Data Source=LAPTOP-GRGA\\SQLEXPRESS;Initial Catalog=F1KarteDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
     }
+    
+//     public class F1CardContext : DbContext
+//     {
+//         public DbSet<F1Card> F1Cards { get; set; }
+//         public DbSet<City> Cities { get; set; }
+
+//         protected override void OnModelCreating(ModelBuilder modelBuilder)
+//         {
+//             // Configure PTT as foreign key for F1Card
+//             modelBuilder.Entity<F1Card>()
+//                 .HasOne(c => c.City)
+//                 .WithMany(p => p.F1Cards)
+//                 .HasForeignKey(c => c.PTT)
+//                 .OnDelete(DeleteBehavior.Cascade);
+//         }
+//     }
 }
