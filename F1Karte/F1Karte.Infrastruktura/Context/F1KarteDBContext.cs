@@ -26,6 +26,10 @@ namespace F1Karte.Infrastruktura.Context
     
 //     public class F1CardContext : DbContext
 //     {
+//             public F1CardContext(DbContextOptions<F1CardContext> options) : base(options)
+//             {
+//             }
+    
 //         public DbSet<F1Card> F1Cards { get; set; }
 //         public DbSet<City> Cities { get; set; }
 
@@ -38,5 +42,12 @@ namespace F1Karte.Infrastruktura.Context
 //                 .HasForeignKey(c => c.PTT)
 //                 .OnDelete(DeleteBehavior.Cascade);
 //         }
+//             protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//             {
+//                 if (!optionsBuilder.IsConfigured)
+//                 {
+//                     optionsBuilder.UseSqlServer("Server=YOUR_SERVER_NAME;Database=YOUR_DATABASE_NAME;Trusted_Connection=True;");
+//                 }
+//             }
 //     }
 }
