@@ -27,5 +27,7 @@ namespace F1Karte.UI
 
             await _kartaServis.KreirajNovuKartu(kartaZaDodati);
         }
+        
+        //dataGridView1.DataSource = servisGetAllAsync.ToList();
     }
 }
