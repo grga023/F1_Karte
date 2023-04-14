@@ -49,9 +49,10 @@ namespace F1Karte.Aplikacija.Servisi
             var podatci =  _kartaRepozitorijum.PrikaziPoIDAsync(ID);
             if (podatci == null) throw new KartaNijePronadjenaException("Pogresan ID karte!");
 
-   
+
             Karta KartaZaDodaati = new Karta
             {
+                ID_Karte = podatci.ID_Karte,
                 Drzava = obj.Drzava,
                 Grad = obj.Grad,
                 DateTime = obj.DateTime,
@@ -61,7 +62,7 @@ namespace F1Karte.Aplikacija.Servisi
                 Tribina = obj.Tribina
             };
 
-            _kartaRepozitorijum.Dodaj(KartaZaDodaati);
+            _kartaRepozitorijum.Azuriraj(KartaZaDodaati);
             _kartaRepozitorijum.Sacuvaj();
         }
 

@@ -30,11 +30,11 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtDrzava = new System.Windows.Forms.TextBox();
-            this.txtTribina = new System.Windows.Forms.TextBox();
-            this.txtBrDana = new System.Windows.Forms.TextBox();
-            this.txtxCenaKarte = new System.Windows.Forms.TextBox();
-            this.txtStaza = new System.Windows.Forms.TextBox();
             this.txtGrad = new System.Windows.Forms.TextBox();
+            this.txtStaza = new System.Windows.Forms.TextBox();
+            this.txtCenaKarte = new System.Windows.Forms.TextBox();
+            this.txtBrDana = new System.Windows.Forms.TextBox();
+            this.txtTribina = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.txtFilterCena = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.txtFilterGrad = new System.Windows.Forms.TextBox();
+            this.btnIzmeni = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(540, 8);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(656, 300);
+            this.dataGridView1.Size = new System.Drawing.Size(844, 300);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -73,40 +74,40 @@
             this.txtDrzava.Size = new System.Drawing.Size(224, 23);
             this.txtDrzava.TabIndex = 1;
             // 
-            // txtTribina
+            // txtGrad
             // 
-            this.txtTribina.Location = new System.Drawing.Point(161, 198);
-            this.txtTribina.Name = "txtTribina";
-            this.txtTribina.Size = new System.Drawing.Size(224, 23);
-            this.txtTribina.TabIndex = 2;
-            // 
-            // txtBrDana
-            // 
-            this.txtBrDana.Location = new System.Drawing.Point(161, 169);
-            this.txtBrDana.Name = "txtBrDana";
-            this.txtBrDana.Size = new System.Drawing.Size(224, 23);
-            this.txtBrDana.TabIndex = 3;
-            // 
-            // txtxCenaKarte
-            // 
-            this.txtxCenaKarte.Location = new System.Drawing.Point(161, 140);
-            this.txtxCenaKarte.Name = "txtxCenaKarte";
-            this.txtxCenaKarte.Size = new System.Drawing.Size(224, 23);
-            this.txtxCenaKarte.TabIndex = 4;
+            this.txtGrad.Location = new System.Drawing.Point(161, 53);
+            this.txtGrad.Name = "txtGrad";
+            this.txtGrad.Size = new System.Drawing.Size(224, 23);
+            this.txtGrad.TabIndex = 2;
             // 
             // txtStaza
             // 
             this.txtStaza.Location = new System.Drawing.Point(161, 111);
             this.txtStaza.Name = "txtStaza";
             this.txtStaza.Size = new System.Drawing.Size(224, 23);
-            this.txtStaza.TabIndex = 5;
+            this.txtStaza.TabIndex = 3;
             // 
-            // txtGrad
+            // txtCenaKarte
             // 
-            this.txtGrad.Location = new System.Drawing.Point(161, 53);
-            this.txtGrad.Name = "txtGrad";
-            this.txtGrad.Size = new System.Drawing.Size(224, 23);
-            this.txtGrad.TabIndex = 7;
+            this.txtCenaKarte.Location = new System.Drawing.Point(160, 137);
+            this.txtCenaKarte.Name = "txtCenaKarte";
+            this.txtCenaKarte.Size = new System.Drawing.Size(224, 23);
+            this.txtCenaKarte.TabIndex = 4;
+            // 
+            // txtBrDana
+            // 
+            this.txtBrDana.Location = new System.Drawing.Point(161, 166);
+            this.txtBrDana.Name = "txtBrDana";
+            this.txtBrDana.Size = new System.Drawing.Size(224, 23);
+            this.txtBrDana.TabIndex = 5;
+            // 
+            // txtTribina
+            // 
+            this.txtTribina.Location = new System.Drawing.Point(161, 198);
+            this.txtTribina.Name = "txtTribina";
+            this.txtTribina.Size = new System.Drawing.Size(224, 23);
+            this.txtTribina.TabIndex = 7;
             // 
             // label1
             // 
@@ -167,9 +168,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(4, 82);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 15);
+            this.label7.Size = new System.Drawing.Size(66, 15);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Datum";
+            this.label7.Text = "Datum trke";
             // 
             // button1
             // 
@@ -270,11 +271,22 @@
             this.txtFilterGrad.Size = new System.Drawing.Size(124, 23);
             this.txtFilterGrad.TabIndex = 27;
             // 
+            // btnIzmeni
+            // 
+            this.btnIzmeni.Location = new System.Drawing.Point(391, 61);
+            this.btnIzmeni.Name = "btnIzmeni";
+            this.btnIzmeni.Size = new System.Drawing.Size(143, 31);
+            this.btnIzmeni.TabIndex = 28;
+            this.btnIzmeni.Text = "IZMENI";
+            this.btnIzmeni.UseVisualStyleBackColor = true;
+            this.btnIzmeni.Click += new System.EventHandler(this.btnIzmeni_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1196, 382);
+            this.ClientSize = new System.Drawing.Size(1393, 382);
+            this.Controls.Add(this.btnIzmeni);
             this.Controls.Add(this.txtFilterGrad);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.txtFilterCena);
@@ -293,11 +305,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtGrad);
-            this.Controls.Add(this.txtStaza);
-            this.Controls.Add(this.txtxCenaKarte);
-            this.Controls.Add(this.txtBrDana);
             this.Controls.Add(this.txtTribina);
+            this.Controls.Add(this.txtBrDana);
+            this.Controls.Add(this.txtCenaKarte);
+            this.Controls.Add(this.txtStaza);
+            this.Controls.Add(this.txtGrad);
             this.Controls.Add(this.txtDrzava);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
@@ -312,11 +324,11 @@
 
         private DataGridView dataGridView1;
         private TextBox txtDrzava;
-        private TextBox txtTribina;
-        private TextBox txtBrDana;
-        private TextBox txtxCenaKarte;
-        private TextBox txtStaza;
         private TextBox txtGrad;
+        private TextBox txtStaza;
+        private TextBox txtCenaKarte;
+        private TextBox txtBrDana;
+        private TextBox txtTribina;
         private Label label1;
         private Label label2;
         private Label label3;
@@ -335,5 +347,6 @@
         private TextBox txtFilterCena;
         private Button button3;
         private TextBox txtFilterGrad;
+        private Button btnIzmeni;
     }
 }

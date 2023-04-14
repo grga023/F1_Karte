@@ -26,7 +26,7 @@ namespace F1Karte.UI
             kartaZaDodati.BrDana = Int32.Parse(txtBrDana.Text);
             kartaZaDodati.Tribina = txtTribina.Text;
             kartaZaDodati.DateTime = DateTime.Parse(date.Text);
-            kartaZaDodati.CenaKarte = Int32.Parse(txtxCenaKarte.Text);
+            kartaZaDodati.CenaKarte = Int32.Parse(txtCenaKarte.Text);
             kartaZaDodati.NazivStaze = txtStaza.Text;
 
             await _kartaServis.KreirajNovuKartu(kartaZaDodati);
@@ -35,8 +35,15 @@ namespace F1Karte.UI
 
         private async Task InitPrikaz()
         {
-            var karte = await _kartaServis.PrikazSvihKarataAsync();
-            dataGridView1.DataSource = karte;
+            try
+            {
+                var karte = await _kartaServis.PrikazSvihKarataAsync();
+                dataGridView1.DataSource = karte;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private async Task Filter(string filter, object param)
@@ -74,7 +81,7 @@ namespace F1Karte.UI
             txtBrDana.Text = selektovaniRed.Cells["BrDana"].Value.ToString();
             txtStaza.Text = selektovaniRed.Cells["NazivStaze"].Value.ToString();
             txtTribina.Text = selektovaniRed.Cells["Tribina"].Value.ToString();
-            txtxCenaKarte.Text = selektovaniRed.Cells["CenaKarte"].Value.ToString();
+            txtCenaKarte.Text = selektovaniRed.Cells["CenaKarte"].Value.ToString();
             txtID.Text = selektovaniRed.Cells["ID_Karte"].Value.ToString();
         }
 
@@ -137,6 +144,24 @@ namespace F1Karte.UI
         private void button2_Click(object sender, EventArgs e)
         {
             _kartaServis.ObrisiKartu(txtID.Text);
+            InitPrikaz();
+        }
+
+        private async void btnIzmeni_Click(object sender, EventArgs e)
+        {
+            string ID = txtID.Text;
+
+            Karta kartaZaIzmenu = new();
+
+            kartaZaIzmenu.Drzava = txtDrzava.Text;
+            kartaZaIzmenu.Grad = txtGrad.Text;
+            kartaZaIzmenu.BrDana = Int32.Parse(txtBrDana.Text);
+            kartaZaIzmenu.Tribina = txtTribina.Text;
+            kartaZaIzmenu.DateTime = DateTime.Parse(date.Text);
+            kartaZaIzmenu.CenaKarte = Int32.Parse(txtCenaKarte.Text);
+            kartaZaIzmenu.NazivStaze = txtStaza.Text;
+
+            await _kartaServis.AzurirajKartu(kartaZaIzmenu, ID);
             InitPrikaz();
         }
     }

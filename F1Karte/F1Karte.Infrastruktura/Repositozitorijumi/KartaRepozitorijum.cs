@@ -45,8 +45,11 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
         public Karta PrikaziPoIDAsync(object ID)
         {
             var postoji = _ctx.Karte.Find(ID);
-            if (postoji is null)
+            if (postoji is not null)
+            {
+                _ctx.Entry(postoji).State = EntityState.Detached;
                 return postoji;
+            }
             else return null;
         }
 
