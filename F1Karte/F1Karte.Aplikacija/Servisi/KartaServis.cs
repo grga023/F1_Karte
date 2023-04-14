@@ -10,10 +10,10 @@ namespace F1Karte.Aplikacija.Servisi
         public IKartaRepozitorijum _kartaRepozitorijum;
         public IValidacioniServis _validacioniServis;
 
-        public KartaServis()
+        public KartaServis(IKartaRepozitorijum kartaRepozitorijum, IValidacioniServis validacioniServis)
         {
-            _kartaRepozitorijum = new KartaRepozitorijum();
-            _validacioniServis = new ValidacioniServis();
+            _kartaRepozitorijum = kartaRepozitorijum;
+            _validacioniServis = validacioniServis;
         }
 
         private string GenerisiRandomIDKarte()

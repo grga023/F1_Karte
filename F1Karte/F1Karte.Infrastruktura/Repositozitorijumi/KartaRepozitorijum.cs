@@ -9,9 +9,9 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
     {
         public F1KarteDBContext _ctx;
 
-        public KartaRepozitorijum()
+        public KartaRepozitorijum(F1KarteDBContext ctx)
         {
-            _ctx = new F1KarteDBContext();
+            _ctx = ctx;
         }
 
         public Karta Azuriraj(Karta obj)

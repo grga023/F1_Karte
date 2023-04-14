@@ -6,12 +6,12 @@ namespace F1Karte.UI
 {
     public partial class Form1 : Form
     {
-        KartaServis _kartaServis;
+        private IKartaServis _kartaServis;
         private string filteri;
         
-        public Form1()
+        public Form1(IKartaServis kartaServis)
         {
-            _kartaServis = new KartaServis();
+            _kartaServis = kartaServis;
             InitPrikaz();
             InitializeComponent();
             OmnemoguciFilter();
@@ -28,9 +28,17 @@ namespace F1Karte.UI
             kartaZaDodati.DateTime = DateTime.Parse(date.Text);
             kartaZaDodati.CenaKarte = Int32.Parse(txtCenaKarte.Text);
             kartaZaDodati.NazivStaze = txtStaza.Text;
+            
+            try
+            {
+                await _kartaServis.KreirajNovuKartu(kartaZaDodati);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-            await _kartaServis.KreirajNovuKartu(kartaZaDodati);
-            InitPrikaz();
+            _ = InitPrikaz();
         }
 
         private async Task InitPrikaz()
@@ -52,37 +60,52 @@ namespace F1Karte.UI
             {
                 IEnumerable<Karta> kartaFilter = null;
 
-                switch (filter)
+                try
                 {
-                    case "Grad":
-                        kartaFilter = await _kartaServis.PrikazSvihKarataPoGraduAsync(param);
-                        break;
-                    case "Cena":
-                        kartaFilter = await _kartaServis.PrikazSvihKarataPoCeniAsync(Convert.ToInt32(param));
-                        break;
-                    default:
-                        break;
+                    switch (filter)
+                    {
+                        case "Grad":
+                            kartaFilter = await _kartaServis.PrikazSvihKarataPoGraduAsync(param);
+                            break;
+                        case "Cena":
+                            kartaFilter = await _kartaServis.PrikazSvihKarataPoCeniAsync(Convert.ToInt32(param));
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                catch(Exception ex)
+                {
+                    throw ex;
                 }
 
                 dataGridView1.DataSource = kartaFilter;
             }
             else
             {
-                InitPrikaz();
+                _ = InitPrikaz();
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selektovaniRed = dataGridView1.Rows[e.RowIndex];
+            try
+            {
+                DataGridViewRow selektovaniRed = dataGridView1.Rows[e.RowIndex];
 
-            txtDrzava.Text = selektovaniRed.Cells["Drzava"].Value.ToString();
-            txtGrad.Text = selektovaniRed.Cells["Grad"].Value.ToString();
-            txtBrDana.Text = selektovaniRed.Cells["BrDana"].Value.ToString();
-            txtStaza.Text = selektovaniRed.Cells["NazivStaze"].Value.ToString();
-            txtTribina.Text = selektovaniRed.Cells["Tribina"].Value.ToString();
-            txtCenaKarte.Text = selektovaniRed.Cells["CenaKarte"].Value.ToString();
-            txtID.Text = selektovaniRed.Cells["ID_Karte"].Value.ToString();
+                txtDrzava.Text = selektovaniRed.Cells["Drzava"].Value.ToString();
+                txtGrad.Text = selektovaniRed.Cells["Grad"].Value.ToString();
+                txtBrDana.Text = selektovaniRed.Cells["BrDana"].Value.ToString();
+                txtStaza.Text = selektovaniRed.Cells["NazivStaze"].Value.ToString();
+                txtTribina.Text = selektovaniRed.Cells["Tribina"].Value.ToString();
+                txtCenaKarte.Text = selektovaniRed.Cells["CenaKarte"].Value.ToString();
+                txtID.Text = selektovaniRed.Cells["ID_Karte"].Value.ToString();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         private void cbFilterCena_CheckedChanged(object sender, EventArgs e)
@@ -138,13 +161,13 @@ namespace F1Karte.UI
         private void button3_Click(object sender, EventArgs e)
         {
             var podataZaFilter = UzmiParametar();
-            Filter(filteri, podataZaFilter);
+            _ = Filter(filteri, podataZaFilter);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             _kartaServis.ObrisiKartu(txtID.Text);
-            InitPrikaz();
+            _ = InitPrikaz();
         }
 
         private async void btnIzmeni_Click(object sender, EventArgs e)
@@ -161,8 +184,15 @@ namespace F1Karte.UI
             kartaZaIzmenu.CenaKarte = Int32.Parse(txtCenaKarte.Text);
             kartaZaIzmenu.NazivStaze = txtStaza.Text;
 
-            await _kartaServis.AzurirajKartu(kartaZaIzmenu, ID);
-            InitPrikaz();
+            try
+            {
+                await _kartaServis.AzurirajKartu(kartaZaIzmenu, ID);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            _ = InitPrikaz();
         }
     }
 }
