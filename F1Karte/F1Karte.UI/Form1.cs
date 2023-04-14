@@ -12,30 +12,30 @@ namespace F1Karte.UI
         public Form1(IKartaServis kartaServis)
         {
             _kartaServis = kartaServis;
-            InitPrikaz();
+            _ = InitPrikaz();
             InitializeComponent();
             OmnemoguciFilter();
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            Karta kartaZaDodati = new();
-
-            kartaZaDodati.Drzava = txtDrzava.Text;
-            kartaZaDodati.Grad = txtGrad.Text;
-            kartaZaDodati.BrDana = Int32.Parse(txtBrDana.Text);
-            kartaZaDodati.Tribina = txtTribina.Text;
-            kartaZaDodati.DateTime = DateTime.Parse(date.Text);
-            kartaZaDodati.CenaKarte = Int32.Parse(txtCenaKarte.Text);
-            kartaZaDodati.NazivStaze = txtStaza.Text;
-            
             try
             {
+                Karta kartaZaDodati = new();
+
+                kartaZaDodati.Drzava = txtDrzava.Text;
+                kartaZaDodati.Grad = txtGrad.Text;
+                kartaZaDodati.BrDana = Int32.Parse(txtBrDana.Text);
+                kartaZaDodati.Tribina = txtTribina.Text;
+                kartaZaDodati.DateTime = DateTime.Parse(date.Text);
+                kartaZaDodati.CenaKarte = Int32.Parse(txtCenaKarte.Text);
+                kartaZaDodati.NazivStaze = txtStaza.Text;
+            
                 await _kartaServis.KreirajNovuKartu(kartaZaDodati);
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
 
             _ = InitPrikaz();
@@ -50,7 +50,7 @@ namespace F1Karte.UI
             }
             catch(Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -76,7 +76,7 @@ namespace F1Karte.UI
                 }
                 catch(Exception ex)
                 {
-                    throw ex;
+                    MessageBox.Show(ex.ToString());
                 }
 
                 dataGridView1.DataSource = kartaFilter;
@@ -103,7 +103,7 @@ namespace F1Karte.UI
             }
             catch(Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
 
         }
@@ -172,25 +172,25 @@ namespace F1Karte.UI
 
         private async void btnIzmeni_Click(object sender, EventArgs e)
         {
-            string ID = txtID.Text;
-
-            Karta kartaZaIzmenu = new();
-
-            kartaZaIzmenu.Drzava = txtDrzava.Text;
-            kartaZaIzmenu.Grad = txtGrad.Text;
-            kartaZaIzmenu.BrDana = Int32.Parse(txtBrDana.Text);
-            kartaZaIzmenu.Tribina = txtTribina.Text;
-            kartaZaIzmenu.DateTime = DateTime.Parse(date.Text);
-            kartaZaIzmenu.CenaKarte = Int32.Parse(txtCenaKarte.Text);
-            kartaZaIzmenu.NazivStaze = txtStaza.Text;
-
             try
             {
+                string ID = txtID.Text;
+
+                Karta kartaZaIzmenu = new();
+
+                kartaZaIzmenu.Drzava = txtDrzava.Text;
+                kartaZaIzmenu.Grad = txtGrad.Text;
+                kartaZaIzmenu.BrDana = Int32.Parse(txtBrDana.Text);
+                kartaZaIzmenu.Tribina = txtTribina.Text;
+                kartaZaIzmenu.DateTime = DateTime.Parse(date.Text);
+                kartaZaIzmenu.CenaKarte = Int32.Parse(txtCenaKarte.Text);
+                kartaZaIzmenu.NazivStaze = txtStaza.Text;
+
                 await _kartaServis.AzurirajKartu(kartaZaIzmenu, ID);
             }
             catch(Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
             _ = InitPrikaz();
         }
