@@ -1,5 +1,6 @@
 using F1Karte.Aplikacija.Interfejsi;
 using F1Karte.Aplikacija.Servisi;
+using F1Karte.Domen.DTO;
 using F1Karte.Domen.Modeli;
 
 namespace F1Karte.UI
@@ -12,9 +13,66 @@ namespace F1Karte.UI
         public Form1(IKartaServis kartaServis)
         {
             _kartaServis = kartaServis;
+            _ = initFill();
             _ = InitPrikaz();
             InitializeComponent();
             OmnemoguciFilter();
+        }
+
+        private async Task initFill()
+        {
+            bool podatci = _kartaServis.PostojiKartaUBaziPodataka();
+            if (!podatci)
+            {
+                int[] cenaKarte = { 500, 1500, 5000 };
+                string[] tribina = { "Pravac", "Sikana", "VIP" };
+
+                var karte = new List<Karta>
+                {
+                    new Karta { Drzava = "Australia", Grad = "Melbourne", DateTime = new DateTime(2023, 3, 26), NazivStaze = "Albert Park Grand Prix Circuit" , BrDana = 3, CenaKarte = 500, Tribina = "Pravac"},
+                    new Karta { Drzava = "Bahrain", Grad = "Sakhir", DateTime = new DateTime(2023, 4, 2), NazivStaze = "Bahrain International Circuit", BrDana = 3 },
+                    new Karta { Drzava = "China", Grad = "Shanghai", DateTime = new DateTime(2023, 4, 16), NazivStaze = "Shanghai International Circuit", BrDana = 3 },
+                    new Karta { Drzava = "Azerbaijan", Grad = "Baku", DateTime = new DateTime(2023, 4, 30), NazivStaze = "Baku Grad Circuit", BrDana = 3 },
+                    new Karta { Drzava = "Spain", Grad = "Barcelona", DateTime = new DateTime(2023, 5, 14), NazivStaze = "Circuit de Barcelona-Catalunya", BrDana = 3 },
+                    new Karta { Drzava = "Monaco", Grad = "Monte Carlo", DateTime = new DateTime(2023, 5, 28), NazivStaze = "Circuit de Monaco", BrDana = 3 },
+                    new Karta { Drzava = "Canada", Grad = "Montreal", DateTime = new DateTime(2023, 6, 11), NazivStaze = "Circuit Gilles Villeneuve", BrDana = 3 },
+                    new Karta { Drzava = "France", Grad = "Le Castellet", DateTime = new DateTime(2023, 6, 25), NazivStaze = "Circuit Paul Ricard", BrDana = 3 },
+                    new Karta { Drzava = "Austria", Grad = "Spielberg", DateTime = new DateTime(2023, 7, 9), NazivStaze = "Red Bull Ring", BrDana = 3 },
+                    new Karta { Drzava = "Great Britain", Grad = "Silverstone", DateTime = new DateTime(2023, 7, 16), NazivStaze = "Silverstone Circuit", BrDana = 3 },
+                    new Karta { Drzava = "Hungary", Grad = "Mogyoród", DateTime = new DateTime(2023, 7, 30), NazivStaze = "Hungaroring", BrDana = 3 },
+                    new Karta { Drzava = "Belgium", Grad = "Spa-Francorchamps", DateTime = new DateTime(2023, 8, 27), NazivStaze = "Circuit de Spa-Francorchamps", BrDana = 3 },
+                    new Karta { Drzava = "Netherlands", Grad = "Zandvoort", DateTime = new DateTime(2023, 9, 3), NazivStaze = "Circuit Zandvoort", BrDana = 3 },
+                    new Karta { Drzava = "Italy", Grad = "Monza", DateTime = new DateTime(2023, 9, 10), NazivStaze = "Autodromo Nazionale di Monza", BrDana = 3 },
+                    new Karta { Drzava = "Russia", Grad = "Sochi", DateTime = new DateTime(2023, 9, 24), NazivStaze = "Sochi Autodrom", BrDana = 3 },
+                    new Karta { Drzava = "Singapore", Grad = "Singapore", DateTime = new DateTime(2023, 10, 1), NazivStaze = "Marina Bay Street Circuit", BrDana = 3 }
+
+                };
+
+                try
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        foreach (var item in karte)
+                        {
+                            Karta kartaZaDodati = new();
+
+                            kartaZaDodati.Drzava = item.Drzava;
+                            kartaZaDodati.Grad = item.Grad;
+                            kartaZaDodati.BrDana = item.BrDana;
+                            kartaZaDodati.Tribina = tribina[i];
+                            kartaZaDodati.DateTime = item.DateTime;
+                            kartaZaDodati.CenaKarte = cenaKarte[i];
+                            kartaZaDodati.NazivStaze = item.NazivStaze;
+
+                            await _kartaServis.KreirajNovuKartu(kartaZaDodati);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -119,6 +177,7 @@ namespace F1Karte.UI
             {
                 txtFilterCena.Enabled = false;
                 filteri = "";
+                _ = InitPrikaz();
             }
         }
 
@@ -133,6 +192,7 @@ namespace F1Karte.UI
             {
                 txtFilterGrad.Enabled = false;
                 filteri = "";
+                _ = InitPrikaz();
             }
         }
 

@@ -15,5 +15,6 @@ namespace F1Karte.Aplikacija.Interfejsi
         Task AzurirajKartu(Karta obj, object ID);
         Task KreirajNovuKartu(Karta KartaModel);
         void ObrisiKartu(object ID);
+        bool PostojiKartaUBaziPodataka();
     }
 }

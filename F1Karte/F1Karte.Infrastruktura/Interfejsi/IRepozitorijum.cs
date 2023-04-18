@@ -16,6 +16,7 @@ namespace F1Karte.Infrastruktura.Interfejsi
         T Dodaj(T obj);
         T Azuriraj(T obj);
         void Sacuvaj();
+        bool PostojiKarta();
 
     }
 }

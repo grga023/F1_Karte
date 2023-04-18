@@ -44,7 +44,7 @@ namespace F1Karte.Aplikacija.Servisi
 
             return ID;
         }
-        public async Task AzurirajKartu(Karta obj, object ID)
+        public Task AzurirajKartu(Karta obj, object ID)
         {
             var podatci =  _kartaRepozitorijum.PrikaziPoIDAsync(ID);
             if (podatci == null) throw new KartaNijePronadjenaException("Pogresan ID karte!");
@@ -64,8 +64,8 @@ namespace F1Karte.Aplikacija.Servisi
 
             _kartaRepozitorijum.Azuriraj(KartaZaDodaati);
             _kartaRepozitorijum.Sacuvaj();
+            return Task.CompletedTask;
         }
-
 
         public async Task KreirajNovuKartu(Karta KartaModel)
         {
@@ -187,6 +187,9 @@ namespace F1Karte.Aplikacija.Servisi
             return result;
         }
 
-
+        public bool PostojiKartaUBaziPodataka()
+        {
+            return _kartaRepozitorijum.PostojiKarta();
+        }
     }
 }

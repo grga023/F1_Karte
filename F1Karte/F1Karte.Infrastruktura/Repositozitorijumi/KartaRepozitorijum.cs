@@ -42,6 +42,12 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
 
             _ctx.Karte.Remove(postoji);
         }
+
+        public bool PostojiKarta()
+        {
+            return _ctx.Karte.Any();
+        }
+
         public Karta PrikaziPoIDAsync(object ID)
         {
             var postoji = _ctx.Karte.Find(ID);
