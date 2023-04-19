@@ -126,7 +126,7 @@ namespace F1Karte.Aplikacija.Servisi
                 result.Add(Karta);
             }
 
-            return result;
+            return result.karte.OrderBy(k => k.DateTime);
         }
 
         public async Task<IEnumerable<Karta>> PrikazSvihKarataPoCeniAsync(object Cena)
