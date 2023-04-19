@@ -39,13 +39,18 @@ namespace F1Karte.UI
                     new Karta { Drzava = "France", Grad = "Le Castellet", DateTime = new DateTime(2023, 6, 25), NazivStaze = "Circuit Paul Ricard", BrDana = 3 },
                     new Karta { Drzava = "Austria", Grad = "Spielberg", DateTime = new DateTime(2023, 7, 9), NazivStaze = "Red Bull Ring", BrDana = 3 },
                     new Karta { Drzava = "Great Britain", Grad = "Silverstone", DateTime = new DateTime(2023, 7, 16), NazivStaze = "Silverstone Circuit", BrDana = 3 },
-                    new Karta { Drzava = "Hungary", Grad = "Mogyor�d", DateTime = new DateTime(2023, 7, 30), NazivStaze = "Hungaroring", BrDana = 3 },
+                    new Karta { Drzava = "Hungary", Grad = "Mogyoród", DateTime = new DateTime(2023, 7, 30), NazivStaze = "Hungaroring", BrDana = 3 },
                     new Karta { Drzava = "Belgium", Grad = "Spa-Francorchamps", DateTime = new DateTime(2023, 8, 27), NazivStaze = "Circuit de Spa-Francorchamps", BrDana = 3 },
                     new Karta { Drzava = "Netherlands", Grad = "Zandvoort", DateTime = new DateTime(2023, 9, 3), NazivStaze = "Circuit Zandvoort", BrDana = 3 },
                     new Karta { Drzava = "Italy", Grad = "Monza", DateTime = new DateTime(2023, 9, 10), NazivStaze = "Autodromo Nazionale di Monza", BrDana = 3 },
                     new Karta { Drzava = "Russia", Grad = "Sochi", DateTime = new DateTime(2023, 9, 24), NazivStaze = "Sochi Autodrom", BrDana = 3 },
                     new Karta { Drzava = "Singapore", Grad = "Singapore", DateTime = new DateTime(2023, 10, 1), NazivStaze = "Marina Bay Street Circuit", BrDana = 3 }
-
+                    new Karta { Drzava = "Japan", Grad = "Suzuka", DateTime = new DateTime(2023, 10, 8), NazivStaze = "Suzuka Circuit", BrDana = 3 },
+                    new Karta { Drzava = "USA", Grad = "Austin", DateTime = new DateTime(2023, 10, 22), NazivStaze = "Circuit of the Americas", BrDana = 3 },
+                    new Karta { Drzava = "Mexico", Grad = "Mexico City", DateTime = new DateTime(2023, 10, 29), NazivStaze = "Autódromo Hermanos Rodríguez", BrDana = 3 },
+                    new Karta { Drzava = "Brazil", Grad = "São Paulo", DateTime = new DateTime(2023, 11, 12), NazivStaze = "Autódromo José Carlos Pace", BrDana = 3 },
+                    new Karta { Drzava = "Saudi Arabia", Grad = "Jeddah", DateTime = new DateTime(2023, 11, 26), NazivStaze = "Jeddah Corniche Circuit", BrDana = 3 },
+                    new Karta { Drzava = "Abu Dhabi", Grad = "Yas Island", DateTime = new DateTime(2023, 12, 3), NazivStaze = "Yas Marina Circuit", BrDana = 3 }
                 };
 
                 try
