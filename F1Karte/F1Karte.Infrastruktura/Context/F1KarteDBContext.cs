@@ -24,3 +24,9 @@ namespace F1Karte.Infrastruktura.Context
 
     }
 }
+
+//Uutstvo:
+//Potrebno je izmeniti knekcioni string. U delu source upisati naziv servera.
+//u PackageMenagerConsole koristiti sledece komannde
+//1.EntityFrameworkCore\Add-Migration
+//2.EntityFrameworkCore\Update-Database

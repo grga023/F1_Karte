@@ -1,6 +1,6 @@
 using F1Karte.Aplikacija.Interfejsi;
 using F1Karte.Aplikacija.Servisi;
-using F1Karte.Domen.DTO;
+
 using F1Karte.Domen.Modeli;
 
 namespace F1Karte.UI
@@ -44,7 +44,7 @@ namespace F1Karte.UI
                     new Karta { Drzava = "Netherlands", Grad = "Zandvoort", DateTime = new DateTime(2023, 9, 3), NazivStaze = "Circuit Zandvoort", BrDana = 3 },
                     new Karta { Drzava = "Italy", Grad = "Monza", DateTime = new DateTime(2023, 9, 10), NazivStaze = "Autodromo Nazionale di Monza", BrDana = 3 },
                     new Karta { Drzava = "Russia", Grad = "Sochi", DateTime = new DateTime(2023, 9, 24), NazivStaze = "Sochi Autodrom", BrDana = 3 },
-                    new Karta { Drzava = "Singapore", Grad = "Singapore", DateTime = new DateTime(2023, 10, 1), NazivStaze = "Marina Bay Street Circuit", BrDana = 3 }
+                    new Karta { Drzava = "Singapore", Grad = "Singapore", DateTime = new DateTime(2023, 10, 1), NazivStaze = "Marina Bay Street Circuit", BrDana = 3 },
                     new Karta { Drzava = "Japan", Grad = "Suzuka", DateTime = new DateTime(2023, 10, 8), NazivStaze = "Suzuka Circuit", BrDana = 3 },
                     new Karta { Drzava = "USA", Grad = "Austin", DateTime = new DateTime(2023, 10, 22), NazivStaze = "Circuit of the Americas", BrDana = 3 },
                     new Karta { Drzava = "Mexico", Grad = "Mexico City", DateTime = new DateTime(2023, 10, 29), NazivStaze = "Autódromo Hermanos Rodríguez", BrDana = 3 },
@@ -175,6 +175,7 @@ namespace F1Karte.UI
         {
             if (cbFilterCena.Checked)
             {
+                cbFilterGrad.Checked = false;
                 txtFilterCena.Enabled = true;
                 filteri = "Cena";
             }
@@ -190,6 +191,7 @@ namespace F1Karte.UI
         {
             if (cbFilterGrad.Checked)
             {
+                cbFilterCena.Checked = false;
                 txtFilterGrad.Enabled = true;
                 filteri = "Grad";
             }

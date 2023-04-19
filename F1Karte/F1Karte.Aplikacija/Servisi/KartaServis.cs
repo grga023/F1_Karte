@@ -126,7 +126,7 @@ namespace F1Karte.Aplikacija.Servisi
                 result.Add(Karta);
             }
 
-            return result.karte.OrderBy(k => k.DateTime);
+            return result.OrderBy(k => k.DateTime).ToList();
         }
 
         public async Task<IEnumerable<Karta>> PrikazSvihKarataPoCeniAsync(object Cena)
@@ -155,7 +155,7 @@ namespace F1Karte.Aplikacija.Servisi
                 result.Add(Karta);
             }
 
-            return result;
+            return result.OrderBy(k => k.DateTime).ToList();
         }
 
         public async Task<IEnumerable<Karta>> PrikazSvihKarataPoGraduAsync(object Grad)
@@ -184,7 +184,7 @@ namespace F1Karte.Aplikacija.Servisi
                 result.Add(Karta);
             }
 
-            return result;
+            return result.OrderBy(k => k.DateTime).ToList();
         }
 
         public bool PostojiKartaUBaziPodataka()
