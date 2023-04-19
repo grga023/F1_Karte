@@ -50,7 +50,7 @@ namespace F1Karte.Aplikacija.Servisi
             if (podatci == null) throw new KartaNijePronadjenaException("Pogresan ID karte!");
 
 
-            Karta KartaZaDodaati = new Karta
+            Karta KartaZaDodaati = new()
             {
                 ID_Karte = podatci.ID_Karte,
                 Drzava = obj.Drzava,
@@ -78,7 +78,7 @@ namespace F1Karte.Aplikacija.Servisi
                 await KreirajNovuKartu(KartaModel);
 
             
-            Karta KartaZaDodaati = new Karta
+            Karta KartaZaDodaati = new()
             {
                 ID_Karte = IDKarte,
                 Drzava = KartaModel.Drzava,
@@ -106,7 +106,7 @@ namespace F1Karte.Aplikacija.Servisi
             var podatci = await _kartaRepozitorijum.PrikazSvihKarataAsync();
             if (podatci is null) throw new KartaNijePronadjenaException("Nema unetih karata!");
 
-            List<Karta> result = new List<Karta>();
+            List<Karta> result = new();
             Karta Karta;
 
             foreach (var item in podatci)
@@ -135,7 +135,7 @@ namespace F1Karte.Aplikacija.Servisi
             if (podatci is null)
                 throw new KartaNijePronadjenaException("Neispravna cena!");
 
-            List<Karta> result = new List<Karta>();
+            List<Karta> result = new();
             Karta Karta;
 
             foreach (var item in podatci)
@@ -164,7 +164,7 @@ namespace F1Karte.Aplikacija.Servisi
             if (podatci is null)
                 throw new KartaNijePronadjenaException("Neispravna cena!");
 
-            List<Karta> result = new List<Karta>();
+            List<Karta> result = new();
             Karta Karta;
 
             foreach (var item in podatci)

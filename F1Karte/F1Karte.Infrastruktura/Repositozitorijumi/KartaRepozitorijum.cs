@@ -24,7 +24,6 @@ namespace F1Karte.Infrastruktura.Repositozitorijumi
             }
             catch (Exception e)
             {
-
                 throw e;
             }
         }

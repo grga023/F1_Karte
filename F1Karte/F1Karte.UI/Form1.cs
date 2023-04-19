@@ -7,19 +7,19 @@ namespace F1Karte.UI
 {
     public partial class Form1 : Form
     {
-        private IKartaServis _kartaServis;
-        private string filteri;
+        private readonly IKartaServis _kartaServis;
+        private string filteri = "";
         
         public Form1(IKartaServis kartaServis)
         {
             _kartaServis = kartaServis;
-            _ = initFill();
+            _ = InitFill();
             _ = InitPrikaz();
             InitializeComponent();
             OmnemoguciFilter();
         }
 
-        private async Task initFill()
+        private async Task InitFill()
         {
             bool podatci = _kartaServis.PostojiKartaUBaziPodataka();
             if (!podatci)
@@ -59,15 +59,16 @@ namespace F1Karte.UI
                     {
                         foreach (var item in karte)
                         {
-                            Karta kartaZaDodati = new();
-
-                            kartaZaDodati.Drzava = item.Drzava;
-                            kartaZaDodati.Grad = item.Grad;
-                            kartaZaDodati.BrDana = item.BrDana;
-                            kartaZaDodati.Tribina = tribina[i];
-                            kartaZaDodati.DateTime = item.DateTime;
-                            kartaZaDodati.CenaKarte = cenaKarte[i];
-                            kartaZaDodati.NazivStaze = item.NazivStaze;
+                            Karta kartaZaDodati = new()
+                            {
+                                Drzava = item.Drzava,
+                                Grad = item.Grad,
+                                BrDana = item.BrDana,
+                                Tribina = tribina[i],
+                                DateTime = item.DateTime,
+                                CenaKarte = cenaKarte[i],
+                                NazivStaze = item.NazivStaze
+                            };
 
                             await _kartaServis.KreirajNovuKartu(kartaZaDodati);
                         }
@@ -84,16 +85,17 @@ namespace F1Karte.UI
         {
             try
             {
-                Karta kartaZaDodati = new();
+                Karta kartaZaDodati = new()
+                {
+                    Drzava = txtDrzava.Text,
+                    Grad = txtGrad.Text,
+                    BrDana = Int32.Parse(txtBrDana.Text),
+                    Tribina = txtTribina.Text,
+                    DateTime = DateTime.Parse(date.Text),
+                    CenaKarte = Int32.Parse(txtCenaKarte.Text),
+                    NazivStaze = txtStaza.Text
+                };
 
-                kartaZaDodati.Drzava = txtDrzava.Text;
-                kartaZaDodati.Grad = txtGrad.Text;
-                kartaZaDodati.BrDana = Int32.Parse(txtBrDana.Text);
-                kartaZaDodati.Tribina = txtTribina.Text;
-                kartaZaDodati.DateTime = DateTime.Parse(date.Text);
-                kartaZaDodati.CenaKarte = Int32.Parse(txtCenaKarte.Text);
-                kartaZaDodati.NazivStaze = txtStaza.Text;
-            
                 await _kartaServis.KreirajNovuKartu(kartaZaDodati);
             }
             catch (Exception ex)
@@ -119,7 +121,7 @@ namespace F1Karte.UI
 
         private async Task Filter(string filter, object param)
         {
-            if (param != "" && filter != "")
+            if (filter != "" && param is null)
             {
                 IEnumerable<Karta> kartaFilter = null;
 
@@ -209,7 +211,7 @@ namespace F1Karte.UI
             txtFilterGrad.Enabled = false;
         }
 
-        private string UzmiParametar()
+        private object UzmiParametar()
         {
             if (txtFilterCena.Enabled)
             {
@@ -221,7 +223,7 @@ namespace F1Karte.UI
             }
             else
             {
-                return "";
+                return null;
             }
         }
 
