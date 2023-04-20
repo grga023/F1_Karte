@@ -59,5 +59,15 @@ namespace F1Karte.UI.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap red_bull_profitable {
+            get {
+                object obj = ResourceManager.GetObject("red-bull-profitable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

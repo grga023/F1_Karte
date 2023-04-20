@@ -112,6 +112,19 @@ namespace F1Karte.UI
             {
                 var karte = await _kartaServis.PrikazSvihKarataAsync();
                 dataGridView1.DataSource = karte;
+                dataGridView1.Columns["ID_Karte"].HeaderText = "ID";
+                dataGridView1.Columns["ID_Karte"].Width = 130;
+                dataGridView1.Columns["Drzava"].Width = 80;
+                dataGridView1.Columns["Grad"].Width = 120;
+                dataGridView1.Columns["DateTime"].HeaderText = "Datum trke";
+                dataGridView1.Columns["DateTime"].Width = 100;
+                dataGridView1.Columns["NazivStaze"].HeaderText = "Naziv staze";
+                dataGridView1.Columns["NazivStaze"].Width = 200;
+                dataGridView1.Columns["CenaKarte"].HeaderText = "Cena";
+                dataGridView1.Columns["CenaKarte"].Width = 50;
+                dataGridView1.Columns["BrDana"].HeaderText = "Broj dana";
+                dataGridView1.Columns["BrDana"].Width = 50;    
+                dataGridView1.Columns["Tribina"].Width = 50;
             }
             catch(Exception ex)
             {
