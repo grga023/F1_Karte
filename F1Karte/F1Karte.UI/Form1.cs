@@ -134,7 +134,7 @@ namespace F1Karte.UI
 
         private async Task Filter(string filter, object param)
         {
-            if (filter != "" && param is null)
+            if (filter != "" && param != "")
             {
                 IEnumerable<Karta> kartaFilter = null;
 
