@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1Karte.Domen", "F1Karte.Do
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1Karte.Aplikacija", "F1Karte.Aplikacija\F1Karte.Aplikacija.csproj", "{53D0ADDD-8EBF-46FD-A2BD-5881A92D4E48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1Karte.UI", "F1Karte.UI\F1Karte.UI.csproj", "{FB108B53-54B4-4E83-BCC5-7A44E10590AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1Karte.UI", "F1Karte.UI\F1Karte.UI.csproj", "{FB108B53-54B4-4E83-BCC5-7A44E10590AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

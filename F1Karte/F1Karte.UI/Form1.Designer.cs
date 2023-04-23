@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtDrzava = new System.Windows.Forms.TextBox();
             this.txtGrad = new System.Windows.Forms.TextBox();
@@ -360,6 +361,7 @@
             this.Controls.Add(this.txtGrad);
             this.Controls.Add(this.txtDrzava);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "F1 Karte za 2023. godinu";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
