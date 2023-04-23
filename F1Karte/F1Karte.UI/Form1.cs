@@ -106,25 +106,40 @@ namespace F1Karte.UI
             _ = InitPrikaz();
         }
 
+        private void PostavkaTabele(DataGridView tabela)
+        {
+            int offset = 0;
+            DataGridView tabelaPodataka = tabela;
+            int cnt = tabelaPodataka.RowCount;
+
+            if (cnt < 11) offset = 10;
+            else offset = 0;
+
+            tabelaPodataka.Columns["ID_Karte"].HeaderText = "ID";
+            tabelaPodataka.Columns["ID_Karte"].Width = 130;
+            tabelaPodataka.Columns["Drzava"].Width = 80;
+            tabelaPodataka.Columns["Grad"].Width = 120;
+            tabelaPodataka.Columns["DateTime"].HeaderText = "Datum trke";
+            tabelaPodataka.Columns["DateTime"].Width = 100 + offset;
+            tabelaPodataka.Columns["NazivStaze"].HeaderText = "Naziv staze";
+            tabelaPodataka.Columns["NazivStaze"].Width = 200 + offset;
+            tabelaPodataka.Columns["CenaKarte"].HeaderText = "Cena";
+            tabelaPodataka.Columns["CenaKarte"].Width = 50;
+            tabelaPodataka.Columns["BrDana"].HeaderText = "Broj dana";
+            tabelaPodataka.Columns["BrDana"].Width = 50 ;
+            tabelaPodataka.Columns["Tribina"].Width = 50;
+        }
+
         private async Task InitPrikaz()
         {
             try
             {
                 var karte = await _kartaServis.PrikazSvihKarataAsync();
+                
                 dataGridView1.DataSource = karte;
-                dataGridView1.Columns["ID_Karte"].HeaderText = "ID";
-                dataGridView1.Columns["ID_Karte"].Width = 130;
-                dataGridView1.Columns["Drzava"].Width = 80;
-                dataGridView1.Columns["Grad"].Width = 120;
-                dataGridView1.Columns["DateTime"].HeaderText = "Datum trke";
-                dataGridView1.Columns["DateTime"].Width = 100;
-                dataGridView1.Columns["NazivStaze"].HeaderText = "Naziv staze";
-                dataGridView1.Columns["NazivStaze"].Width = 200;
-                dataGridView1.Columns["CenaKarte"].HeaderText = "Cena";
-                dataGridView1.Columns["CenaKarte"].Width = 50;
-                dataGridView1.Columns["BrDana"].HeaderText = "Broj dana";
-                dataGridView1.Columns["BrDana"].Width = 50;    
-                dataGridView1.Columns["Tribina"].Width = 50;
+                PostavkaTabele(dataGridView1);
+
+
             }
             catch(Exception ex)
             {
@@ -158,6 +173,7 @@ namespace F1Karte.UI
                 }
 
                 dataGridView1.DataSource = kartaFilter;
+                PostavkaTabele(dataGridView1);
             }
             else
             {
@@ -178,6 +194,7 @@ namespace F1Karte.UI
                 txtTribina.Text = selektovaniRed.Cells["Tribina"].Value.ToString();
                 txtCenaKarte.Text = selektovaniRed.Cells["CenaKarte"].Value.ToString();
                 txtID.Text = selektovaniRed.Cells["ID_Karte"].Value.ToString();
+                date.Text = selektovaniRed.Cells["DateTime"].Value.ToString();
             }
             catch(Exception ex)
             {
