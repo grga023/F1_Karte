@@ -112,7 +112,7 @@ namespace F1Karte.UI
             DataGridView tabelaPodataka = tabela;
             int cnt = tabelaPodataka.RowCount;
 
-            if (cnt < 11) offset = 10;
+            if (cnt < 11) offset = 8;
             else offset = 0;
 
             tabelaPodataka.Columns["ID_Karte"].HeaderText = "ID";
@@ -127,7 +127,7 @@ namespace F1Karte.UI
             tabelaPodataka.Columns["CenaKarte"].Width = 50;
             tabelaPodataka.Columns["BrDana"].HeaderText = "Broj dana";
             tabelaPodataka.Columns["BrDana"].Width = 50 ;
-            tabelaPodataka.Columns["Tribina"].Width = 50;
+            tabelaPodataka.Columns["Tribina"].Width = 54;
         }
 
         private async Task InitPrikaz()
