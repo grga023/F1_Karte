@@ -103,13 +103,13 @@ namespace F1Karte.Aplikacija.Servisi
 
         public async Task<IEnumerable<Karta>> PrikazSvihKarataAsync()
         {
-            var podatci = await _kartaRepozitorijum.PrikazSvihKarataAsync();
-            if (podatci is null) throw new KartaNijePronadjenaException("Nema unetih karata!");
+            var podaci = await _kartaRepozitorijum.PrikazSvihKarataAsync();
+            if (podaci is null) throw new KartaNijePronadjenaException("Nema unetih karata!");
 
             List<Karta> result = new();
             Karta Karta;
 
-            foreach (var item in podatci)
+            foreach (var item in podaci)
             {
                 Karta = new Karta
                 {
